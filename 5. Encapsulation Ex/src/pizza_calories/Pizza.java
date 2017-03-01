@@ -1,6 +1,7 @@
 package pizza_calories;
 
 import java.util.HashSet;
+import java.util.IntSummaryStatistics;
 import java.util.Set;
 
 /**
@@ -10,12 +11,18 @@ public class Pizza {
     private String name;
     private Dough dough;
     private HashSet<Topping> toppings;
+    private int numberOfToppings;
+    private double totalCalories;
 
-    public Pizza(String name, Dough dough){
-        this.setName(name);
-        this.setDough(dough);
+    public Pizza(){
         this.toppings = new HashSet<>();
     }
+    public Pizza(String name, int numberOfToppings){
+        this.setName(name);
+        this.setnumberOfToppings(numberOfToppings);
+        this.toppings = new HashSet<>();
+    }
+
 
     public double getCalories(){
         double calories = 0.0;
@@ -26,7 +33,25 @@ public class Pizza {
         return calories;
     }
     public void setName(String name){
+        if(!name.equals("") && !(name.length()>=1) && !(name.length()<=15)){
+            throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
+        }
         this.name = name;
+    }
+    public String getName(){
+       return this.name;
+    }
+
+    public int getnumberOfToppings(){
+        return this.numberOfToppings;
+    }
+
+    public void setnumberOfToppings(int num){
+        if (num < 0 || num > 10)
+        {
+            throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
+        }
+        this.numberOfToppings = num;
     }
 
     public void setDough(Dough dough){

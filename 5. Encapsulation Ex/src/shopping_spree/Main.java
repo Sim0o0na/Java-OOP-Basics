@@ -12,25 +12,29 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
+
         LinkedHashMap<String, Person> people = new LinkedHashMap<>();
         LinkedHashMap<String, Product> products = new LinkedHashMap<>();
 
         String[] peopleLines = scan.readLine().split(";");
-        boolean toBreak = true;
-        while(toBreak) {
             for (String peopleLine : peopleLines) {
                 String[] currLine = peopleLine.split("=");
                 try {
                     people.put(currLine[0], new Person(currLine[0], Double.parseDouble(currLine[1])));
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
-                    toBreak=false;
+                    return;
                 }
             }
             String[] productsLines = scan.readLine().split(";");
             for (String productLine : productsLines) {
                 String[] currpLine = productLine.split("=");
-                products.put(currpLine[0], new Product(currpLine[0], Double.parseDouble(currpLine[1])));
+                try {
+                    products.put(currpLine[0], new Product(currpLine[0], Double.parseDouble(currpLine[1])));
+                }catch (IllegalArgumentException iae){
+                    System.out.println(iae.getMessage());
+                    return;
+                }
             }
 
             while (true) {
@@ -43,7 +47,6 @@ public class Main {
                     System.out.printf("%s bought %s\n", cmd[0], cmd[1]);
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
-                    toBreak=false;
                 }
             }
 
@@ -55,6 +58,6 @@ public class Main {
                     people.get(person).printBag();
                 }
             }
-        }
+
     }
 }

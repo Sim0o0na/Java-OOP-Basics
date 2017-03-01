@@ -22,6 +22,9 @@ public class Trainer {
         return name;
     }
 
+    public void removePokemon(Pokemon pokemon){
+        this.pokemons.remove(pokemon);
+    }
     public void setPokemons(Pokemon pokemon){
         this.pokemons.add(pokemon);
     }

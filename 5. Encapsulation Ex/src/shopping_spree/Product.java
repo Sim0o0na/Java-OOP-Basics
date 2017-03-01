@@ -9,6 +9,9 @@ public class Product {
     }
 
     public void setPrice(double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Money cannot be negative");
+        }
         this.price = price;
     }
 
@@ -17,6 +20,9 @@ public class Product {
     }
 
     public void setName(String name) {
+        if (name.length() < 1 || name.charAt(0) == ' ') {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
         this.name = name;
     }
 

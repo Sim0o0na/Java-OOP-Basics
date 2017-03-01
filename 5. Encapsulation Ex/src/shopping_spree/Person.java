@@ -25,7 +25,7 @@ public class Person {
     }
 
     public void setName(String name){
-        if(name.equals("")){
+        if(name == null || name.trim().length() == 0){
             throw new IllegalArgumentException("Name cannot be empty");
         }
         this.name = name;

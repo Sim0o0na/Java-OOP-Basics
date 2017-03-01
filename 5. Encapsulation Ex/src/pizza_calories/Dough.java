@@ -9,6 +9,8 @@ public class Dough {
     private String flourType;
     private String bakingTechnique;
     private double weight;
+    private double modifierByType;
+    private double modifierByTechnique;
 
     public Dough(String flourType, String bakingTechnique, double weight){
         this.setFlourType(flourType);
@@ -50,7 +52,7 @@ public class Dough {
 
     //WEIGHT
     public void setWeight(double weight) {
-        if(weight<1 || weight>100){
+        if(weight<1 || weight>200){
             throw new IllegalArgumentException("Dough weight should be in the range [1..200].");
         }
         this.weight = weight;
@@ -84,11 +86,4 @@ public class Dough {
     public double getModifierByTechnique() {
         return modifierByTechnique;
     }
-
-
-
-    private double modifierByType;
-    private double modifierByTechnique;
-
-
 }
