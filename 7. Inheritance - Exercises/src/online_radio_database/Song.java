@@ -6,10 +6,10 @@ package online_radio_database;
 public class Song {
     private String artist;
     private String name;
-    private int minutes;
-    private int seconds;
+    private Integer minutes;
+    private Integer seconds;
 
-    public Song(String artist, String name, int minutes, int seconds) throws InvalidSongException {
+    public Song(String artist, String name, Integer minutes, Integer seconds) throws InvalidSongException {
         this.setArtist(artist);
         this.setName(name);
         this.setMinutes(minutes);
@@ -42,7 +42,7 @@ public class Song {
         return minutes;
     }
 
-    public void setMinutes(int minutes) throws InvalidSongMinutesException {
+    public void setMinutes(Integer minutes) throws InvalidSongMinutesException {
         if(minutes<0 || minutes>14){
             throw new InvalidSongMinutesException("Song minutes should be between 0 and 14.");
         }

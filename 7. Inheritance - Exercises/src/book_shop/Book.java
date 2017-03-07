@@ -16,36 +16,36 @@ public class Book {
         this.setPrice(price);
     }
 
-    protected String getTitle() {
+    public String getTitle() {
         return title;
     }
 
     protected void setTitle(String title) {
-        if (title.length() < 3) {
+        if (title.length() < 3 || title.isEmpty()) {
             throw new IllegalArgumentException("Title not valid!");
         }
         this.title = title;
     }
 
-    protected String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
     protected void setAuthor(String author) {
-        String firstName = author.split("\\s+")[0];
         String secondName = author.split("\\s+")[1];
-        if (Character.isDigit(secondName.charAt(0))) {
+        System.out.println();
+        if (Character.isDigit(secondName.charAt(0)) || author.isEmpty()) {
             throw new IllegalArgumentException("Author not valid!");
         }
         this.author = author;
     }
 
-    protected double getPrice() {
+    public double getPrice() {
         return price;
     }
 
     protected void setPrice(double price) {
-        if (price == 0 || price < 0) {
+        if (price<1) {
             throw new IllegalArgumentException("Price not valid!");
         }
         this.price = price;

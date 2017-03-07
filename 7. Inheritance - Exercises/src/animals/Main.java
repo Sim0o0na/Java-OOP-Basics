@@ -22,10 +22,6 @@ public class Main {
 //            System.out.printf("Name: %s Age: %s Gender: %s\n", animalName, animalAge, gender);
             try {
                 switch (cmd.toLowerCase()) {
-                    case "animal":
-                        gender = info[2];
-                        animal = new Animal(info[0], Integer.parseInt(info[1]), gender);
-                        break;
                     case "cat":
                         gender = info[2];
                         animal = new Cat(info[0], Integer.parseInt(info[1]), gender);
@@ -43,6 +39,9 @@ public class Main {
                         break;
                     case "tomcat":
                         animal = new Tomcat(info[0], Integer.parseInt(info[1]), "Male");
+                        break;
+                    default:
+                        System.out.println("Invalid input!");
                         break;
                 }
 

@@ -9,7 +9,8 @@ public class GoldenEditionBook extends Book {
     }
 
     @Override
-    public double getPrice(){
-        return super.getPrice()+(0.3*super.getPrice());
+    public double getPrice() {
+        return super.getPrice() + super.getPrice() * 0.3;
     }
+
 }

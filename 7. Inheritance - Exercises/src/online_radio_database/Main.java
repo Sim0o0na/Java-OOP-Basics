@@ -10,14 +10,14 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(reader.readLine());
+        Integer n = Integer.parseInt(reader.readLine());
 
         OnlineRadioDatabase ordb = new OnlineRadioDatabase();
         while (n-->0){
             String[] line = reader.readLine().split(";");
             String songArtist = line[0]; String songName = line[1];
-            int songMin = Integer.parseInt(line[2].split(":")[0]);
-            int songSec = Integer.parseInt(line[2].split(":")[1]);
+            Integer songMin = Integer.parseInt(line[2].split(":")[0]);
+            Integer songSec = Integer.parseInt(line[2].split(":")[1]);
             try{
                 Song song = new Song(songArtist, songName, songMin, songSec);
                 ordb.addSong(song);
